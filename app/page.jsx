@@ -109,9 +109,9 @@ export default function Home() {
                                 From their explosive debut performance at Oslo
                                 Cathedral School to their string of successes,
                                 Catch the Fox has been making waves in the music
-                                scene. Their energetic debut single, "Dancing On
-                                The Edge," is a testament to their collective
-                                creativity and passion.
+                                scene. Their energetic debut single,
+                                &#34;Dancing On The Edge,&#34; is a testament to
+                                their collective creativity and passion.
                             </p>
                             <p>
                                 Recently crowned winners of the Norwegian final
