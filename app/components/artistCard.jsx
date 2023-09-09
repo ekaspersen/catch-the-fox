@@ -35,28 +35,28 @@ const ArtistContainer = () => {
                 altText="artist-bilde | LP på gitaren"
                 artistName="LP NÆSS"
                 instagram="Larspetternaess"
-                rolle="Gitarist"
+                rolle="Gitarsolo? LP."
             />
             <ArtistCard
                 imageUrl="./IMG_1722.JPG"
                 altText="artist-bilde | Tommy Jee synger for full hals"
                 artistName="TOMMY JEE"
                 instagram="litte_jee"
-                rolle="Kul dude"
+                rolle="Sangfuglen"
             />
             <ArtistCard
                 imageUrl="./DSCF8334.JPG"
                 altText="artist-bilde | Niklas på trommer i baris"
                 artistName="NIKLAS FAANES"
                 instagram="niklas_faanes"
-                rolle="Kul dude"
+                rolle="Baris = stemning"
             />
             <ArtistCard
                 imageUrl="./DSCF8029.JPG"
                 altText="artist-bilde | Lars Olai på gitar!"
                 artistName="LARS OLAI"
                 instagram="larsipan_with"
-                rolle="Kul dude"
+                rolle="Fingerspill og fanteri"
             />
         </div>
     );

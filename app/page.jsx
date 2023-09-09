@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Contact from "./components/contact";
 import ArtistContainer from "./components/artistCard";
+import Image from "next/image";
 export default function Home() {
     return (
         <main>
@@ -60,14 +61,14 @@ export default function Home() {
                 <div className="flex flex-col lg:flex-col-reverse h-full">
                     <div className="flex lg:flex-1">
                         <div className="flex-1 bg-clrprimary grid place-items-center py-8">
-                            <img
+                            <Image
                                 className="max-w-[80%]"
                                 src="./ctf-graphic-shop.png"
                                 alt="graphic ctf"
                             />
                         </div>
                         <div className="flex-1 grid place-items-center">
-                            <img
+                            <Image
                                 className="max-w-[80%]"
                                 src="./t-preview.png"
                                 alt="t-preview-img"
@@ -146,7 +147,7 @@ export default function Home() {
                 </div>
             </section>
             <Contact />
-            <div className="w-full flex p-1 opacity-50 gap-1 text-xs ">
+            <div className="w-full flex p-1 opacity-50 gap-1 text-xs mb-24 lg:mb-0">
                 <Link href="/handelsvilkar" className="underline">
                     Handelsvilkår
                 </Link>

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Shop() {
     return (
         <main className="min-h-screen ">
@@ -16,7 +18,7 @@ export default function Shop() {
             <section className="grid w-full max-w-7xl mx-auto  gap-4 grid-cols-4 grid-rows-3">
                 <div className="bg-clrprimary px-4 py-8 gap-8 items-center flex flex-col">
                     <div className="flex flex-col items-center">
-                        <img src="./t-preview.png" alt="t-preview-img" />
+                        <Image src="./t-preview.png" alt="t-preview-img" />
                         <p className="font-black italic text-xl">
                             CTF graphic t-shirt
                         </p>
