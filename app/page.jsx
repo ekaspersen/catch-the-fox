@@ -146,6 +146,11 @@ export default function Home() {
                 </div>
             </section>
             <Contact />
+            <div className="w-full flex p-1 opacity-50 gap-1 text-xs ">
+                <Link href="/handelsvilkar" className="underline">
+                    Handelsvilkår
+                </Link>
+            </div>
         </main>
     );
 }
