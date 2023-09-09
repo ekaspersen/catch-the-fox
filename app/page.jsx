@@ -110,7 +110,7 @@ export default function Home() {
                                 Cathedral School to their string of successes,
                                 Catch the Fox has been making waves in the music
                                 scene. Their energetic debut single,
-                                &#34;Dancing On The Edge,&#34; is a testament to
+                                &#34;Dancing On The Edge&#34;, is a testament to
                                 their collective creativity and passion.
                             </p>
                             <p>
