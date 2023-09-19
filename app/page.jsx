@@ -63,15 +63,19 @@ export default function Home() {
                         <div className="flex-1 bg-clrprimary grid place-items-center py-8">
                             <Image
                                 className="max-w-[80%]"
-                                src="./ctf-graphic-shop.png"
+                                src="/ctf-graphic-shop.png"
                                 alt="graphic ctf"
+                                width={252}
+                                height={308}
                             />
                         </div>
                         <div className="flex-1 grid place-items-center">
                             <Image
                                 className="max-w-[80%]"
-                                src="./t-preview.png"
+                                src="/t-preview.png"
                                 alt="t-preview-img"
+                                width={569}
+                                height={569}
                             />
                         </div>
                     </div>

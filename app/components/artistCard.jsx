@@ -1,8 +1,12 @@
+import Image from "next/image";
+
 const ArtistCard = ({ imageUrl, altText, artistName, instagram, rolle }) => {
     return (
         <div className="lg:hover:flex-[1.2] cursor-pointer transition-all duration-500 lg:flex-1 max-w-[270px] lg:max-w-none lg:h-[420px] relative h-96 overflow-hidden">
             <div className="absolute inset-0 bg-clrdark opacity-30"></div>
-            <img
+            <Image
+                width={270}
+                height={420}
                 src={imageUrl}
                 alt={altText}
                 className="min-h-full min-w-full object-cover object-center"
@@ -31,28 +35,28 @@ const ArtistContainer = () => {
     return (
         <div className="flex flex-wrap lg:flex-nowrap gap-4 justify-center">
             <ArtistCard
-                imageUrl="./lpgitarartistbilde.JPG"
+                imageUrl="/lpgitarartistbilde.JPG"
                 altText="artist-bilde | LP på gitaren"
                 artistName="LP NÆSS"
                 instagram="Larspetternaess"
                 rolle="Gitarsolo? LP."
             />
             <ArtistCard
-                imageUrl="./IMG_1722.JPG"
+                imageUrl="/IMG_1722.JPG"
                 altText="artist-bilde | Tommy Jee synger for full hals"
                 artistName="TOMMY JEE"
                 instagram="litte_jee"
                 rolle="Sangfuglen"
             />
             <ArtistCard
-                imageUrl="./DSCF8334.JPG"
+                imageUrl="/DSCF8334.JPG"
                 altText="artist-bilde | Niklas på trommer i baris"
                 artistName="NIKLAS FAANES"
                 instagram="niklas_faanes"
                 rolle="Baris = stemning"
             />
             <ArtistCard
-                imageUrl="./DSCF8029.JPG"
+                imageUrl="/DSCF8029.JPG"
                 altText="artist-bilde | Lars Olai på gitar!"
                 artistName="LARS OLAI"
                 instagram="larsipan_with"
