@@ -31,44 +31,9 @@ export default function Shop() {
                         </p>
                     </div>
                     <button className="py-4 px-8 mt-auto bg-clrdark w-fit font-extrabold">
-                        LEGG TIL
+                        MORE
                     </button>
                 </div>
-                <div className="bg-clrprimary px-4 py-8 gap-8 items-center flex flex-col">
-                    <div className="flex flex-col items-center">
-                        <Image
-                            className="object-contain max-h-80"
-                            src="/black-t-munch.png"
-                            alt="black-t-munch"
-                            width={400}
-                            height={450}
-                        />
-                        <p className="font-black italic text-xl">
-                            CTF graphic t-shirt
-                        </p>
-                    </div>
-                    <p className="py-4 px-8 mt-auto bg-clrdark w-fit font-extrabold">
-                        LEGG TIL
-                    </p>
-                </div>
-                <div className="bg-clrprimary px-4 py-8 gap-8 items-center flex flex-col">
-                    <div className="flex flex-col items-center">
-                        <Image
-                            className="object-contain max-h-80"
-                            src="/white-t-munch.png"
-                            alt="white-t-munch"
-                            width={400}
-                            height={450}
-                        />
-                        <p className="font-black italic text-xl">
-                            CTF graphic t-shirt
-                        </p>
-                    </div>
-                    <p className="py-4 px-8 mt-auto bg-clrdark w-fit font-extrabold">
-                        LEGG TIL
-                    </p>
-                </div>
-
                 <div className="bg-clrdark gap-4 grid row-span-2 md:grid-cols-2 md:row-span-2 md:col-span-2 lg:row-span-1 lg:grid-cols-3 lg:col-span-3">
                     <div className="flex-1 bg-clrprimary grid place-items-center relative">
                         <div className="w-60 h-60 bg-clrdark outline outline-4 outline-offset-8 outline-clrdark"></div>
@@ -113,6 +78,40 @@ export default function Shop() {
                     <div className="flex-1 bg-clrdark grid place-items-center relative md:col-span-2 lg:col-span-1">
                         <div className="w-60 h-60 rounded-full bg-clrprimary outline outline-4 outline-offset-8 outline-clrprimary"></div>
                     </div>
+                </div>
+                <div className="bg-clrprimary px-4 py-8 gap-8 items-center flex flex-col">
+                    <div className="flex flex-col items-center">
+                        <Image
+                            className="object-contain max-h-80"
+                            src="/black-t-munch.png"
+                            alt="black-t-munch"
+                            width={400}
+                            height={450}
+                        />
+                        <p className="font-black italic text-xl">
+                            CTF graphic t-shirt
+                        </p>
+                    </div>
+                    <button className="py-4 px-8 mt-auto bg-clrdark w-fit font-extrabold">
+                        MORE
+                    </button>
+                </div>
+                <div className="bg-clrprimary px-4 py-8 gap-8 items-center flex flex-col">
+                    <div className="flex flex-col items-center">
+                        <Image
+                            className="object-contain max-h-80"
+                            src="/white-t-munch.png"
+                            alt="white-t-munch"
+                            width={400}
+                            height={450}
+                        />
+                        <p className="font-black italic text-xl">
+                            CTF graphic t-shirt
+                        </p>
+                    </div>
+                    <button className="py-4 px-8 mt-auto bg-clrdark w-fit font-extrabold">
+                        MORE
+                    </button>
                 </div>
             </section>
         </main>

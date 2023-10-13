@@ -68,9 +68,16 @@ export default function Handelsvilkar() {
                     6. Reklamasjonshåndtering
                 </h2>
                 <p>
-                    Hvis mottatt produkt er skadet eller har feil, vennligst
-                    kontakt oss innen 7 dager for en reklamasjon. Vi vil
-                    erstatte varen eller refundere beløpet etter vurdering.
+                    Reklamasjon ved mangel eller skade Hvis mottatt produkt er
+                    skadet eller har feil, vennligst kontakt oss umiddelbart.
+                    Kjøper har alltid reklamert tidsnok dersom det skjer innen 2
+                    måneder fra mangelen ble oppdaget eller burde ha blitt
+                    oppdaget. Reklamasjon kan skje senest to år etter at kjøper
+                    overtok varen. Dersom produktet eller deler av det er ment å
+                    vare vesentlig lenger enn to år, er reklamasjonsfristen fem
+                    år. Etter mottak og vurdering av reklamasjonen vil vi enten
+                    erstatte varen eller refundere beløpet. Reklamasjon til oss
+                    bør skje skriftlig.
                 </p>
             </div>
 
