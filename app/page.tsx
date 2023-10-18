@@ -25,7 +25,7 @@ export default function Home() {
                         src="https://open.spotify.com/embed/track/7hcpf4fgMXaUKoSzgnJzfL?utm_source=generator&theme=0"
                         width="100%"
                         height="100"
-                        allowFullScreen=""
+                        allowFullScreen={false}
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"
                     ></iframe>

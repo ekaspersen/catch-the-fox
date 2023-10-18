@@ -1,6 +1,20 @@
 import Image from "next/image";
 
-const ArtistCard = ({ imageUrl, altText, artistName, instagram, rolle }) => {
+type ArtistCardProps = {
+    imageUrl: string;
+    altText: string;
+    artistName: string;
+    instagram: string;
+    rolle: string;
+};
+
+const ArtistCard = ({
+    imageUrl,
+    altText,
+    artistName,
+    instagram,
+    rolle,
+}: ArtistCardProps) => {
     return (
         <div className="lg:hover:flex-[1.2] cursor-pointer transition-all duration-500 lg:flex-1 max-w-[270px] lg:max-w-none lg:h-[420px] relative h-96 overflow-hidden">
             <div className="absolute inset-0 bg-clrdark opacity-30"></div>

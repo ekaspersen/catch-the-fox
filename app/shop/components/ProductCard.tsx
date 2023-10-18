@@ -1,19 +1,30 @@
-import { supabase } from "@/utils/supabase";
 import Image from "next/image";
+import { supabase } from "../../../utils/supabase";
+import { PostgrestError } from "@supabase/supabase-js";
+
+type Product = {
+    id: number;
+    name: string;
+    price: number;
+    image_url: string;
+};
 
 export default async function ProductCard() {
     // gets first 3 products from the database table products
-    const { data: products, error } = await supabase
+    const {
+        data: products,
+        error,
+    }: { data: any; error: PostgrestError | null } = await supabase
         .from("products")
         .select("*")
         .limit(3);
     if (error) {
-        throw new Error(error);
+        throw new Error(error.message);
     }
 
     return (
         <>
-            {products.map((product) => (
+            {products.map((product:Product) => (
                 <div
                     key={product.id}
                     className="bg-clrprimary px-4 py-8 gap-8 items-center flex flex-col"
