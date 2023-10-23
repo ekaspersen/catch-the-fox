@@ -66,8 +66,8 @@ export default function Home() {
             <div className="grid flex-1 place-items-center">
               <Image
                 className="max-w-[80%]"
-                src="/t-preview.png"
-                alt="t-preview-img"
+                src="/white-t-fox.png"
+                alt="Mirage Fox t-shirt"
                 width={569}
                 height={569}
               />
