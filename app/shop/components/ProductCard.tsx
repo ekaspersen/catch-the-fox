@@ -1,54 +1,33 @@
 import Image from "next/image";
-import { supabase } from "../../../utils/supabase";
-import { PostgrestError } from "@supabase/supabase-js";
-
-type Product = {
-    id: number;
-    name: string;
-    price: number;
-    image_url: string;
-};
+import { api } from "@/trpc/server";
 
 export default async function ProductCard() {
-    // gets first 3 products from the database table products
-    const {
-        data: products,
-        error,
-    }: { data: any; error: PostgrestError | null } = await supabase
-        .from("products")
-        .select("*")
-        .limit(3);
-    if (error) {
-        throw new Error(error.message);
-    }
+  // server api query example below
+  const products = await api.products.getFirstProducts.query();
 
-    return (
-        <>
-            {products.map((product:Product) => (
-                <div
-                    key={product.id}
-                    className="bg-clrprimary px-4 py-8 gap-8 items-center flex flex-col"
-                >
-                    <div className="flex flex-col items-center">
-                        <Image
-                            className="object-contain max-h-80"
-                            src={product.image_url}
-                            alt="graphic Catch the fox t-shirt"
-                            width={400}
-                            height={450}
-                        />
-                        <p className="pt-2 italic text-xl md:text-2xl">
-                            {product.name}
-                        </p>
-                        <p className="font-semibold italic">
-                            {product.price}kr
-                        </p>
-                    </div>
-                    <button className="py-4 px-8 mt-auto bg-clrdark w-fit font-extrabold">
-                        MORE
-                    </button>
-                </div>
-            ))}
-        </>
-    );
+  return (
+    <>
+      {products.map((product) => (
+        <div
+          key={product.id}
+          className="flex flex-col items-center gap-8 bg-clrprimary px-4 py-8"
+        >
+          <div className="flex flex-col items-center">
+            <Image
+              className="max-h-80 object-contain"
+              src={product?.image_url as string}
+              alt="graphic Catch the fox t-shirt"
+              width={400}
+              height={450}
+            />
+            <p className="pt-2 text-xl italic md:text-2xl">{product?.name}</p>
+            <p className="font-semibold italic">{Number(product?.price)}kr</p>
+          </div>
+          <button className="mt-auto w-fit bg-clrdark px-8 py-4 font-extrabold">
+            MORE
+          </button>
+        </div>
+      ))}
+    </>
+  );
 }
