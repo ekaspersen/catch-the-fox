@@ -83,50 +83,50 @@ export default function Home() {
         </div>
       </section>
       <section>
-        <div className="">
-          <div className="mx-auto flex max-w-7xl flex-col gap-8 bg-clrprimary px-4 py-16 md:gap-16">
-            <h2 className="text-4xl font-black md:text-5xl">ABOUT US</h2>
+        <div
+          id="aboutus"
+          className="mx-auto flex max-w-7xl flex-col gap-8 bg-clrprimary px-4 py-16 md:gap-16"
+        >
+          <h2 className="text-4xl font-black md:text-5xl">ABOUT US</h2>
 
-            <div className="flex max-w-3xl flex-col gap-4 font-medium text-clrdark lg:text-xl">
-              <p className="font-bold text-clrwhite">
-                Introducing Catch the Fox, the sensational rock band from
-                Northern Norway. Born in 2022, this dynamic group of four
-                musicians is ready to rock your world.
-              </p>
-              <p>
-                With Tommy Jee as the lead vocalist, LP Næss on guitar, Lars
-                Olai With us on bass and guitar, and Niklas Faanes on drums,
-                Catch the Fox brings together a diverse range of musical
-                talents. Their sound is a captivating fusion of styles that will
-                leave you wanting more.
-              </p>
-              <p>
-                From their explosive debut performance at Oslo Cathedral School
-                to their string of successes, Catch the Fox has been making
-                waves in the music scene. Their energetic debut single,
-                &#34;Dancing On The Edge&#34;, is a testament to their
-                collective creativity and passion.
-              </p>
-              <p>
-                Recently crowned winners of the Norwegian final of the Emergenza
-                festival, Catch the Fox is set to represent Norway in the grand
-                international final in Germany. This ambitious band has its
-                sights set on reaching new heights and making a mark on the
-                global stage.
-              </p>
-              <p>
-                With their infectious energy, unwavering passion, and unique
-                sound, Catch the Fox is a standout act in the Norwegian music
-                scene. Keep an eye out for their electrifying performances and
-                join them on their extraordinary journey.
-              </p>
-              <p className="font-bold text-clrwhite">
-                Catch the Fox – the rock band that will ignite your soul and
-                leave you craving more.
-              </p>
-            </div>
-            <ArtistContainer />
+          <div className="flex max-w-3xl flex-col gap-4 font-medium text-clrdark lg:text-xl">
+            <p className="font-bold text-clrwhite">
+              Introducing Catch the Fox, the sensational rock band from Northern
+              Norway. Born in 2022, this dynamic group of four musicians is
+              ready to rock your world.
+            </p>
+            <p>
+              With Tommy Jee as the lead vocalist, LP Næss on guitar, Lars Olai
+              With us on bass and guitar, and Niklas Faanes on drums, Catch the
+              Fox brings together a diverse range of musical talents. Their
+              sound is a captivating fusion of styles that will leave you
+              wanting more.
+            </p>
+            <p>
+              From their explosive debut performance at Oslo Cathedral School to
+              their string of successes, Catch the Fox has been making waves in
+              the music scene. Their energetic debut single, &#34;Dancing On The
+              Edge&#34;, is a testament to their collective creativity and
+              passion.
+            </p>
+            <p>
+              Recently crowned winners of the Norwegian final of the Emergenza
+              festival, Catch the Fox is set to represent Norway in the grand
+              international final in Germany. This ambitious band has its sights
+              set on reaching new heights and making a mark on the global stage.
+            </p>
+            <p>
+              With their infectious energy, unwavering passion, and unique
+              sound, Catch the Fox is a standout act in the Norwegian music
+              scene. Keep an eye out for their electrifying performances and
+              join them on their extraordinary journey.
+            </p>
+            <p className="font-bold text-clrwhite">
+              Catch the Fox – the rock band that will ignite your soul and leave
+              you craving more.
+            </p>
           </div>
+          <ArtistContainer />
         </div>
       </section>
       <Contact />

@@ -32,14 +32,18 @@ export default function RootLayout({
       >
         <TRPCReactProvider headers={headers()}>
           <div className=" fixed left-0 right-0 top-0 z-50 bg-clrprimary">
-            <nav className="mx-auto flex max-w-7xl justify-between px-4 py-2 text-sm font-bold italic lg:text-lg ">
+            <nav className="mx-auto flex max-w-7xl justify-between px-4 py-2 text-sm font-black italic lg:text-lg ">
               <div className="flex items-center gap-6">
                 <Link href="/">HOME</Link>
+                <Link href="/#aboutus">ABOUT US</Link>
                 <Link href="/shop">MERCH SHOP</Link>
               </div>
-              <Link className="flex gap-2" href="/#kontakt">
+              <Link
+                className="flex h-4 flex-row-reverse gap-2 lg:flex-row"
+                href="/#kontakt"
+              >
                 <PhoneSVG />
-                <span className="hidden text-clrdark lg:block">
+                <span className="hidden text-clrdark md:block">
                   KONTAKT OSS
                 </span>
               </Link>

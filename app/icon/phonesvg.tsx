@@ -6,7 +6,7 @@ export default function PhoneSVG() {
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="h-6 w-6"
+      className="h-5 md:h-4 lg:h-6 lg:w-6"
     >
       <g clipPath="url(#clip0_81_29)">
         <path
