@@ -115,13 +115,6 @@ export default function Home() {
                 global stage.
               </p>
               <p>
-                Recently crowned winners of the Norwegian final of the Emergenza
-                festival, Catch the Fox is set to represent Norway in the grand
-                international final in Germany. This ambitious band has its
-                sights set on reaching new heights and making a mark on the
-                global stage.
-              </p>
-              <p>
                 With their infectious energy, unwavering passion, and unique
                 sound, Catch the Fox is a standout act in the Norwegian music
                 scene. Keep an eye out for their electrifying performances and
