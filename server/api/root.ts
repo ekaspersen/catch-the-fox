@@ -11,7 +11,7 @@ import { productsRouter } from "./routers/products";
  */
 
 export const appRouter = createTRPCRouter({
-    products: productsRouter,
+  products: productsRouter,
 });
 
 // export type definition of API
