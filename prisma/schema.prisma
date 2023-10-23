@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model categories {
+  id       BigInt     @id @default(autoincrement())
+  name     String     @default("")
+  products products[]
+}
+
+model products {
+  id          BigInt       @id @default(autoincrement())
+  category_id BigInt?
+  name        String?
+  price       Decimal?     @db.Decimal
+  image_url   String?
+  categories  categories?  @relation(fields: [category_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  sizesStock  sizesStock[]
+}
+
+model sizes {
+  id         BigInt       @id(map: "sizes_pkey1") @default(autoincrement())
+  name       String
+  sizesStock sizesStock[]
+}
+
+model sizesStock {
+  id         BigInt    @id(map: "sizes_pkey") @default(autoincrement())
+  size_id    BigInt
+  amount     BigInt?
+  product_id BigInt?
+  products   products? @relation(fields: [product_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  sizes      sizes     @relation(fields: [size_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
