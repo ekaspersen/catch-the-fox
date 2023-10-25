@@ -23,7 +23,7 @@ export default async function ProductCard() {
             <p className="pt-2 text-xl italic md:text-2xl">{product?.name}</p>
             <p className="font-semibold italic">{Number(product?.price)}kr</p>
           </div>
-          <button className="mt-auto w-fit bg-clrdark px-8 py-4 font-extrabold">
+          <button className="mt-auto w-fit bg-clrdark px-8 py-4 font-extrabold hover:bg-clrwhite hover:text-clrdark">
             MORE
           </button>
         </div>
