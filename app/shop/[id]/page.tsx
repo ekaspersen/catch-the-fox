@@ -57,9 +57,9 @@ export default function Page({ params }: { params: { id: number } }) {
               </span>
             </div>
             <span className="relative z-10 text-4xl font-black italic text-clrprimary lg:text-5xl">
-              {product?.price},-
+              {product?.price?.toString()},-
               <span className="absolute left-[-3px] top-[-3px] z-0 text-4xl font-black italic text-clrtertiary lg:text-5xl">
-                {product?.price},-
+                {product?.price?.toString()},-
               </span>
             </span>
             <button className="bg-clrprimary p-4 font-extrabold text-clrdark">
