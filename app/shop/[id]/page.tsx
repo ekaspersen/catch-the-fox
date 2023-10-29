@@ -18,10 +18,10 @@ export default function Page({ params }: { params: { id: number } }) {
           <span>/</span>
           {product?.name}
         </div>
-        <div className="flex w-full">
-          <div className="flex-1">
+        <div className="flex w-full flex-col md:flex-row">
+          <div className="grid flex-1 place-items-center pb-8">
             <Image
-              className="max-h-80 object-contain"
+              className="object-contain"
               src={product?.image_url as string}
               alt="graphic Catch the fox t-shirt"
               width={400}
@@ -31,20 +31,40 @@ export default function Page({ params }: { params: { id: number } }) {
           <div className="flex flex-1 flex-col gap-12">
             <div>
               <span>T-shirt</span>
-              <h1>{product?.name}</h1>
+              <h1 className="text-3xl font-black lg:text-5xl">
+                {product?.name}
+              </h1>
             </div>
-            <p>
+            <p className="font-medium">
               Unleash your inner rockstar with our Catch The Fox Limited Edition
               T-Shirt! Made with 100% premium cotton for ultimate comfort, this
               tee is a must-have for any true fan. Get yours now and keep the
               music alive!
             </p>
             <div className="flex flex-col">
-              <button>Choose size</button>
-              <span>Pick a size to add to cart</span>
+              <button className="flex w-max items-center gap-10 bg-clrwhite p-2 text-clrdark">
+                <span className="font-medium">Choose size</span>
+                <Image
+                  className="max-w-[80%]"
+                  src="/chevron-down.svg"
+                  alt="graphic ctf"
+                  width={24}
+                  height={24}
+                />
+              </button>
+              <span className="pt-1 font-extrabold text-clrwhite opacity-50">
+                Pick a size to add to cart
+              </span>
             </div>
-            <div>300kr</div>
-            <button>add to cart</button>
+            <span className="relative z-10 text-4xl font-black italic text-clrprimary lg:text-5xl">
+              {product?.price},-
+              <span className="absolute left-[-3px] top-[-3px] z-0 text-4xl font-black italic text-clrtertiary lg:text-5xl">
+                {product?.price},-
+              </span>
+            </span>
+            <button className="bg-clrprimary p-4 font-extrabold text-clrdark">
+              Add to cart
+            </button>
           </div>
         </div>
       </section>
