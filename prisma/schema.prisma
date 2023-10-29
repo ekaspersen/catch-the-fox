@@ -17,7 +17,7 @@ model products {
   id          BigInt       @id @default(autoincrement())
   category_id BigInt?
   name        String?
-  price       Decimal?     @db.Decimal
+  price       String?
   image_url   String?
   categories  categories?  @relation(fields: [category_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
   sizesStock  sizesStock[]
