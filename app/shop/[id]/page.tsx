@@ -36,10 +36,10 @@ export default function Page({ params }: { params: { id: number } }) {
               </h1>
             </div>
             <p className="font-medium">
-              Unleash your inner rockstar with our Catch The Fox Limited Edition
-              T-Shirt! Made with 100% premium cotton for ultimate comfort, this
-              tee is a must-have for any true fan. Get yours now and keep the
-              music alive!
+              Discover your inner rockstar with our Catch The Fox Limited
+              Edition T-Shirt! Made with 100% premium cotton for ultimate
+              comfort, this tee is a must-have for any true fan. Get yours now
+              and keep the music alive!
             </p>
             <div className="flex flex-col">
               <button className="flex w-max items-center gap-10 bg-clrwhite p-2 text-clrdark">
