@@ -63,11 +63,11 @@ const ArtistContainer = () => {
         rolle="Sangfuglen"
       />
       <ArtistCard
-        imageUrl="/DSCF8334.JPG"
+        imageUrl="/trommisR.jpg"
         altText="artist-bilde | Niklas på trommer i baris"
-        artistName="NIKLAS FAANES"
-        instagram="niklas_faanes"
-        rolle="Baris = stemning"
+        artistName="RICHARD ERIKSEN"
+        instagram="itsrich.e"
+        rolle="Må bære smil"
       />
       <ArtistCard
         imageUrl="/DSCF8029.JPG"
