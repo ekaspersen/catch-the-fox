@@ -39,7 +39,7 @@ export default function RootLayout({
                 <Link href="/shop">MERCH SHOP</Link>
               </div>
               <Link
-                className="flex h-4 flex-row-reverse gap-2 lg:flex-row"
+                className="flex flex-row-reverse items-center  gap-1"
                 href="/#kontakt"
               >
                 <PhoneSVG />
