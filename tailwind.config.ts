@@ -9,6 +9,7 @@ module.exports = {
     colors: {
       clrprimary: "#D96538",
       clrtertiary: "#F6C594",
+      clrprimarydark: "#471C0B",
       clrdark: "#121212",
       clrwhite: "#FAFAFA",
     },
