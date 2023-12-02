@@ -5,9 +5,17 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Page({ params }: { params: { id: number } }) {
-  const { data: product } = api.products.getSpesificProduct.useQuery({
-    id: Number(params.id),
-  });
+  const { data: product, isFetched } = api.products.getSpesificProduct.useQuery(
+    {
+      id: Number(params.id),
+    },
+  );
+
+  if (isFetched) {
+    console.log(product?.sizesStock);
+  }
+
+  
   return (
     <>
       <section className="mx-auto flex max-w-7xl flex-col gap-20 p-4">
@@ -41,6 +49,9 @@ export default function Page({ params }: { params: { id: number } }) {
             </p>
             <div className="flex flex-col">
               <button>Choose size</button>
+              {product?.sizesStock.map(size => (
+                <div key={size.sizes.id}>{size.sizes.name} = stock: {Number(size.amount)}</div>
+              ))}
               <span>Pick a size to add to cart</span>
             </div>
             <div>300kr</div>

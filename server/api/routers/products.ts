@@ -11,10 +11,18 @@ export const productsRouter = createTRPCRouter({
   }),
   getSpesificProduct: publicProcedure
     .input(z.object({ id: z.number() }))
-    .query(async ({input}) => {
-      const product = await db.products.findUnique({
-        where: {id: input.id}
+    .query(async ({ input }) => {
+      const productWithCategoriesAndSizes = await db.products.findUnique({
+        where: { id: input.id },
+        include: {
+          categories: true,
+          sizesStock: {
+            include: {
+              sizes: true,
+            },
+          },
+        },
       });
-      return product;
+      return productWithCategoriesAndSizes;
     }),
 });
