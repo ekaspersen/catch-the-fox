@@ -75,7 +75,7 @@ export default function Page({ params }: { params: { id: number } }) {
           </div>
         </div>
       </section>
-      <section className="bg-clrprimarydark w-full">
+      <section className="w-full bg-clrprimarydark">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 p-16">
           <h2 className="text-4xl text-clrtertiary">More Stuff</h2>
         </div>

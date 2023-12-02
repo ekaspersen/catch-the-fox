@@ -7,7 +7,7 @@ export default function ShopCart() {
   return (
     <div className="relative">
       {count > 0 && (
-        <p className="text-clrprimarydark absolute right-[-8px] top-[-7px] grid h-5 w-5 place-content-center rounded-full bg-clrprimary text-xs">
+        <p className="text-clrprimarydark absolute right-[-12px] border-clrprimary border top-[-8px] grid h-5 w-5 place-content-center rounded-full bg-clrwhite text-xs">
           {count > 99 ? "99+" : count}
         </p>
       )}
