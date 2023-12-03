@@ -3,11 +3,13 @@
 import { api } from "@/trpc/react";
 import Image from "next/image";
 import Link from "next/link";
+import useCart from "@/app/store/useCart";
 
 export default function Page({ params }: { params: { id: number } }) {
   const { data: product } = api.products.getSpesificProduct.useQuery({
     id: Number(params.id),
   });
+  const addToCart = useCart((state) => state.addToCart);
   return (
     <>
       <section className="mx-auto flex max-w-7xl flex-col gap-20 p-4">
@@ -62,10 +64,20 @@ export default function Page({ params }: { params: { id: number } }) {
                 {product?.price?.toString()},-
               </span>
             </span>
-            <button className="bg-clrprimary p-4 font-extrabold text-clrdark">
+            <button
+              onClick={() => {
+                addToCart();
+              }}
+              className="bg-clrprimary p-4 font-extrabold text-clrdark"
+            >
               Add to cart
             </button>
           </div>
+        </div>
+      </section>
+      <section className="w-full bg-clrprimarydark">
+        <div className="mx-auto flex max-w-7xl flex-col gap-8 p-16">
+          <h2 className="text-4xl text-clrtertiary">More Stuff</h2>
         </div>
       </section>
     </>
