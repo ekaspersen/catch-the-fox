@@ -14,7 +14,37 @@ export const productsRouter = createTRPCRouter({
     .query(async ({ input }) => {
       const product = await db.products.findUnique({
         where: { id: input.id },
+        include: {
+          categories: true,
+          sizesStock: {
+            include: {
+              sizes: true,
+            },
+          },
+        },
       });
-      return product;
+
+      // Fetch associated categories
+      const categories = await db.categories.findMany({
+        where: { products: { some: { id: product?.id } } },
+      });
+
+      // Fetch associated sizes
+      const sizes = [];
+      for (const sizeStock of product?.sizesStock) {
+        const size = await db.sizes.findUnique({
+          where: { id: sizeStock.size_id },
+        });
+        sizes.push(size);
+      }
+
+      // Combine product data with associated categories and sizes
+      const enrichedProduct = {
+        ...product,
+        categories,
+        sizes,
+      };
+
+      return enrichedProduct;
     }),
 });

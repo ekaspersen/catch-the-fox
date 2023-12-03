@@ -9,7 +9,10 @@ export default function Page({ params }: { params: { id: number } }) {
   const { data: product } = api.products.getSpesificProduct.useQuery({
     id: Number(params.id),
   });
-  const addToCart = useCart((state) => state.addToCart);
+  const { addToCart, selectedSize } = useCart((state) => ({
+    addToCart: state.addToCart,
+    selectedSize: state.selectedSize, // Access selectedSize state
+  }));
   return (
     <>
       <section className="mx-auto flex max-w-7xl flex-col gap-20 p-4">
@@ -44,16 +47,31 @@ export default function Page({ params }: { params: { id: number } }) {
               and keep the music alive!
             </p>
             <div className="flex flex-col">
-              <button className="flex w-max items-center gap-10 bg-clrwhite p-2 text-clrdark">
-                <span className="font-medium">Choose size</span>
-                <Image
-                  className="max-w-[80%]"
-                  src="/chevron-down.svg"
-                  alt="graphic ctf"
-                  width={24}
-                  height={24}
-                />
-              </button>
+              <select
+                value={selectedSize} // Set selected option based on selectedSize state
+                onChange={(e) => {
+                  const selectedSizeId = Number(e.target.value);
+                  console.log(selectedSizeId);
+                }}
+                className="w-44  appearance-none border-0 bg-clrwhite p-2 font-medium text-clrdark focus:outline-0"
+              >
+                <option className="hidden" value="">
+                  Choose Size
+                </option>
+                {product?.sizesStock?.map((sizeStock) => (
+                  <option
+                    className="hover:bg-clrprimary"
+                    key={sizeStock.id}
+                    value={sizeStock.id}
+                  >
+                    <span>{sizeStock.sizes.name}</span>
+                    <span className="ml-auto">
+                      ({sizeStock.amount?.toString()})
+                    </span>
+                  </option>
+                ))}
+              </select>
+
               <span className="pt-1 font-extrabold text-clrwhite opacity-50">
                 Pick a size to add to cart
               </span>
@@ -66,7 +84,14 @@ export default function Page({ params }: { params: { id: number } }) {
             </span>
             <button
               onClick={() => {
-                addToCart();
+                // Only add to cart when the button is clicked
+                if (selectedSize > 0) {
+                  addToCart(selectedSize);
+                } else {
+                  console.log(
+                    "Please add better message for client to see that he must choose size first",
+                  );
+                }
               }}
               className="bg-clrprimary p-4 font-extrabold text-clrdark"
             >
@@ -75,7 +100,7 @@ export default function Page({ params }: { params: { id: number } }) {
           </div>
         </div>
       </section>
-      <section className="w-full bg-clrprimarydark">
+      <section className="bg-clrprimarydark w-full">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 p-16">
           <h2 className="text-4xl text-clrtertiary">More Stuff</h2>
         </div>

@@ -43,9 +43,9 @@ export default function RootLayout({
                 <Link className="flex items-center" href="/#kontakt">
                   <PhoneSVG />
                 </Link>
-                <button>
+                <Link href="/shopcart">
                   <ShopCart />
-                </button>
+                </Link>
               </div>
             </nav>
           </div>
