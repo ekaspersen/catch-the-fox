@@ -3,13 +3,24 @@ import { db } from "@/server/db";
 import { z } from "zod";
 
 export const productsRouter = createTRPCRouter({
+  // Endpoint to get the first few products
   getFirstProducts: publicProcedure.query(async () => {
     const products = await db.products.findMany({
       take: 3,
+      include: {
+        categories: true,
+        sizesStock: {
+          include: {
+            sizes: true,
+          },
+        },
+      },
     });
     return products;
   }),
-  getSpesificProduct: publicProcedure
+
+  // Endpoint to get a specific product with categories and sizes
+  getSpecificProduct: publicProcedure
     .input(z.object({ id: z.number() }))
     .query(async ({ input }) => {
       const product = await db.products.findUnique({
@@ -23,28 +34,11 @@ export const productsRouter = createTRPCRouter({
           },
         },
       });
-
-      // Fetch associated categories
-      const categories = await db.categories.findMany({
-        where: { products: { some: { id: product?.id } } },
-      });
-
-      // Fetch associated sizes
-      const sizes = [];
-      for (const sizeStock of product?.sizesStock) {
-        const size = await db.sizes.findUnique({
-          where: { id: sizeStock.size_id },
-        });
-        sizes.push(size);
-      }
-
-      // Combine product data with associated categories and sizes
-      const enrichedProduct = {
-        ...product,
-        categories,
-        sizes,
-      };
-
-      return enrichedProduct;
+      return product;
     }),
+
+  // Add more endpoints as needed, for example:
+  // - Get products by category
+  // - Get all sizes
+  // - Get stock information for different sizes
 });
