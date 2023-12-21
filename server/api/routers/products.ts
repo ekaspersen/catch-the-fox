@@ -9,11 +9,18 @@ export const productsRouter = createTRPCRouter({
     });
     return products;
   }),
-  getSpesificProduct: publicProcedure
+  getSpecificProduct: publicProcedure
     .input(z.object({ id: z.number() }))
     .query(async ({ input }) => {
       const product = await db.products.findUnique({
         where: { id: input.id },
+        include: {
+          sizesStock: {
+            include: {
+              sizes: true,
+            },
+          },
+        },
       });
       return product;
     }),

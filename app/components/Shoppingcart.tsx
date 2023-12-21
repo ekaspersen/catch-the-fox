@@ -1,13 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import useCart from "../store/useCart";
 export default function ShopCart() {
   const { count } = useCart();
 
   return (
-    <div className="relative">
+    <Link href="/shopcart" className="relative">
       {count > 0 && (
-        <p className="text-clrprimarydark absolute right-[-12px] border-clrprimary border top-[-8px] grid h-5 w-5 place-content-center rounded-full bg-clrwhite text-xs">
+        <p className="text-clrprimarydark absolute right-[-12px] top-[-8px] grid h-5 w-5 place-content-center rounded-full border border-clrprimary bg-clrwhite text-xs">
           {count > 99 ? "99+" : count}
         </p>
       )}
@@ -23,6 +24,6 @@ export default function ShopCart() {
           fill="#FAFAFA"
         />
       </svg>
-    </div>
+    </Link>
   );
 }
