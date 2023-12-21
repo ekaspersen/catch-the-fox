@@ -105,7 +105,7 @@ export default function Page({ params }: { params: { id: number } }) {
           </div>
         </div>
       </section>
-      <section className="bg-clrprimarydark w-full">
+      <section className="w-full bg-clrprimarydark">
         <div
           className="mx-auto flex max-w-7xl flex-col gap-8 p-8 py-16 md:p-16 md:py-32
         "
@@ -116,7 +116,7 @@ export default function Page({ params }: { params: { id: number } }) {
               MORE STUFF
             </span>
           </h2>
-          <section className="mx-auto grid w-full max-w-7xl grid-cols-1 grid-rows-2 gap-4  md:grid-cols-2 lg:grid-rows-1">
+          <section className="mx-auto grid w-full max-w-7xl grid-cols-1 grid-rows-2 gap-4   md:grid-cols-2 md:grid-rows-1">
             {products
               ?.filter((otherProduct) => otherProduct.id !== BigInt(params.id))
               .map((otherProduct) => (
