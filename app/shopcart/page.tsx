@@ -1,11 +1,29 @@
 "use client";
 
+import React, { useEffect } from "react";
 import Image from "next/image";
 import useCart from "../store/useCart";
 
 export default function ShopCart() {
-  const cart = useCart((state) => state.cart);
-  console.log(cart);
+  const { cart, getAggregatedCart, aggregatedCart, addToCart, removeFromCart } =
+    useCart((state) => ({
+      cart: state.cart,
+      getAggregatedCart: state.getAggregatedCart,
+      aggregatedCart: state.aggregatedCart,
+      addToCart: state.addToCart,
+      removeFromCart: state.removeFromCart,
+    }));
+
+  useEffect(() => {
+    getAggregatedCart();
+  }, [cart, getAggregatedCart]);
+
+  const calculateTotal = () => {
+    return aggregatedCart.reduce((total, product) => {
+      return total + product.count * product.price;
+    }, 0);
+  };
+
   return (
     <main>
       <div className="flex w-full flex-col items-center gap-2 py-16">
@@ -14,13 +32,16 @@ export default function ShopCart() {
       </div>
       <div className="mx-auto flex w-full max-w-7xl flex-col items-end gap-8 bg-clrprimary px-8 py-4">
         <div className="flex w-full flex-col gap-2">
-          {cart.map((product) => (
-            <div className="flex items-center justify-between bg-clrdark px-8 py-4">
+          {aggregatedCart.map((product) => (
+            <div
+              key={`${product.id}-${product.size}`}
+              className="flex items-center justify-between bg-clrdark px-8 py-4"
+            >
               <div className="flex items-center gap-4">
                 <Image
                   className="h-24 w-24 object-contain"
                   src={product.imgUrl}
-                  alt="graphic Catch the fox t-shirt"
+                  alt={`graphic Catch the fox t-shirt ${product.size}`}
                   width={96}
                   height={96}
                 />
@@ -37,9 +58,13 @@ export default function ShopCart() {
                 <div className="flex flex-col">
                   <span>Amount</span>
                   <div className="flex gap-1">
-                    <button>-</button>
-                    <span>1</span>
-                    <button>+</button>
+                    <button
+                      onClick={() => removeFromCart(product.id, product.size)}
+                    >
+                      -
+                    </button>
+                    <span>{product.count}</span>
+                    <button onClick={() => addToCart({ ...product })}>+</button>
                   </div>
                 </div>
               </div>
@@ -48,7 +73,10 @@ export default function ShopCart() {
         </div>
         <div className="flex flex-col items-end gap-2">
           <span className="text-2xl font-black">Total Price:</span>
-          <span className="text-3xl font-black italic">300kr</span>
+          {/* Calculation for total price needs to be implemented */}
+          <span className="text-3xl font-black italic">
+            {calculateTotal()}kr
+          </span>
         </div>
         <button className="flex w-fit items-center gap-16 rounded-full bg-clrdark px-12 py-6">
           <span className="text-2xl font-extrabold">Go to Checkout</span>
