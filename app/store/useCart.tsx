@@ -34,6 +34,7 @@ export type CartState = {
   cart: Product[];
   aggregatedCart: AggregatedProduct[];
   addToCart: (object: Product) => void;
+  decreaseQuantity: (id: BigInt, size: string) => void;
   removeFromCart: (id: BigInt, size: string) => void;
   removeAllCart: () => void;
   getAggregatedCart: () => void;
@@ -44,6 +45,22 @@ const useCart = create<CartState>((set) => ({
   cart: [],
   addToCart: (object) =>
     set((state) => ({ count: state.count + 1, cart: [...state.cart, object] })),
+  decreaseQuantity: (id: BigInt, size: string) =>
+    set((state) => {
+      let found = false;
+      const newCart = state.cart.reduce((acc: Product[], item) => {
+        if (item.id === id && item.size === size && !found) {
+          found = true;
+          return acc;
+        }
+        return [...acc, item];
+      }, [] as Product[]);
+
+      // Recalculate the aggregated cart
+      const newAggregatedCart = aggregateCartItems(newCart);
+
+      return { ...state, cart: newCart, aggregatedCart: newAggregatedCart };
+    }),
   removeFromCart: (id: BigInt, size: string) =>
     set((state) => {
       const newCart = state.cart.filter(
