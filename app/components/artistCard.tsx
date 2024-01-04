@@ -25,7 +25,7 @@ const ArtistCard = ({
         alt={altText}
         className="min-h-full min-w-full object-cover object-center"
       />
-      <div className="absolute bottom-0 left-0 right-0 z-50 flex flex-col justify-center gap-6 bg-clrdark p-4 text-clrwhite">
+      <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col justify-center gap-6 bg-clrdark p-4 text-clrwhite">
         <div className="flex flex-col gap-0">
           <h2 className="text-2xl font-black">{artistName}</h2>
           <span className="mt-[-6px] opacity-50">{rolle}</span>
@@ -63,11 +63,11 @@ const ArtistContainer = () => {
         rolle="Sangfuglen"
       />
       <ArtistCard
-        imageUrl="/DSCF8334.JPG"
+        imageUrl="/trommisR.jpg"
         altText="artist-bilde | Niklas på trommer i baris"
-        artistName="NIKLAS FAANES"
-        instagram="niklas_faanes"
-        rolle="Baris = stemning"
+        artistName="RICHARD ERIKSEN"
+        instagram="itsrich.e"
+        rolle="Må bære smil"
       />
       <ArtistCard
         imageUrl="/DSCF8029.JPG"
