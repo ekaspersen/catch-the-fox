@@ -1,6 +1,9 @@
 import Image from "next/image";
+import { api } from "@/trpc/server";
+import VippsCheckoutElement from "./_components/VippsCheckout";
+import VippsCheckoutButton from "./_components/VippsCheckOutButton";
 
-export default function ShopCart() {
+export default async function ShopCart() {
   return (
     <main>
       <div className="flex w-full flex-col items-center gap-2 py-16">
@@ -43,7 +46,26 @@ export default function ShopCart() {
           <span className="text-2xl font-black">Total Price:</span>
           <span className="text-3xl font-black italic">300kr</span>
         </div>
-        <button className="flex w-fit items-center gap-16 rounded-full bg-clrdark px-12 py-6">
+        <button
+          onClick={async () => {
+            try {
+              const data = await api.vipps.vippsCreateSession.query({
+                price: 200,
+              });
+              const checkout = new VippsCheckoutDirect({
+                checkoutFrontendUrl: data?.checkoutFrontendUrl,
+                language: "no",
+                token: data?.token,
+              });
+            } catch (e) {
+              console.log("error here ", e);
+            }
+          }}
+        >
+          <VippsCheckoutButton />
+        </button>
+
+        {/* <button className="flex w-fit items-center gap-16 rounded-full bg-clrdark px-12 py-6">
           <span className="text-2xl font-extrabold">Go to Checkout</span>
           <svg
             width="38"
@@ -59,7 +81,7 @@ export default function ShopCart() {
               fill="#FAFAFA"
             />
           </svg>
-        </button>
+        </button> */}
       </div>
     </main>
   );

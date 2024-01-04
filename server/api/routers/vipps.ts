@@ -6,7 +6,7 @@ import { z } from "zod";
 export const vippsRouter = createTRPCRouter({
   vippsCreateSession: publicProcedure.input(z.object({
     price: z.number()
-  })).mutation(async ({input}) => {
+  })).query(async ({input}) => {
     const session = await vipps.checkout.createSession({
       merchantInfo: {
         callbackUrl: "https://matsfjeldstad.no/vipps/payment-callback",

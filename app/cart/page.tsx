@@ -1,6 +1,6 @@
 // import { api } from "@/trpc/react";
-import { api } from "@/trpc/server";
 import React from "react";
+import { api } from "@/trpc/server";
 import VippsCheckoutElement from "./_components/VippsCheckout";
 import VippsCheckoutButton from "./_components/VippsCheckOutButton";
 
