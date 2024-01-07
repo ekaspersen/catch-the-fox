@@ -10,7 +10,6 @@ const ProductsInCart = dynamic(
 );
 
 export default function ShopCart() {
-
   return (
     <main>
       <div className="flex w-full flex-col items-center gap-2 py-16">
