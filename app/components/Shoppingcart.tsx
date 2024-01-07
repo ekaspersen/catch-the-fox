@@ -1,16 +1,16 @@
 "use client";
 
-import useCart from "../store/useCart";
-export default function ShopCart() {
-  const { count } = useCart();
+import Link from "next/link";
+import dynamic from "next/dynamic";
 
+const CartLength = dynamic(() => import("./cartLengthCounter"), {
+  ssr: false,
+});
+
+export default function ShopCart() {
   return (
-    <div className="relative">
-      {count > 0 && (
-        <p className="text-clrprimarydark absolute right-[-12px] border-clrprimary border top-[-8px] grid h-5 w-5 place-content-center rounded-full bg-clrwhite text-xs">
-          {count > 99 ? "99+" : count}
-        </p>
-      )}
+    <Link href="/shopcart" className="relative">
+      <CartLength />
       <svg
         width="26"
         height="24"
@@ -23,6 +23,6 @@ export default function ShopCart() {
           fill="#FAFAFA"
         />
       </svg>
-    </div>
+    </Link>
   );
 }

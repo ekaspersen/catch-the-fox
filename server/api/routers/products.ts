@@ -9,7 +9,7 @@ export const productsRouter = createTRPCRouter({
     });
     return products;
   }),
-  getSpesificProduct: publicProcedure
+  getSpecificProduct: publicProcedure
     .input(z.object({ id: z.number() }))
     .query(async ({ input }) => {
       const productWithCategoriesAndSizes = await db.products.findUnique({
