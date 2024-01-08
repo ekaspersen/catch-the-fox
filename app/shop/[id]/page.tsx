@@ -83,7 +83,7 @@ export default function Page({ params }: { params: { id: number } }) {
                     imgUrl: product?.image_url!,
                     price: Number(product?.price!),
                     currency: "nok",
-                    id: product?.id!,
+                    id: Number(product?.id!),
                     stock: 22,
                   });
                 } else {
