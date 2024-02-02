@@ -1,6 +1,7 @@
 import { create } from "zustand";
-import { persist, createJSONStorage } from "zustand/middleware";
+import { persist } from "zustand/middleware";
 
+// Define the Product type with id as either number or BigInt based on your requirement.
 type Product = {
   stock: number;
   size: string;
@@ -8,9 +9,12 @@ type Product = {
   imgUrl: string;
   price: number;
   currency: string;
-  id: number;
+  id: number; // Change this to BigInt if needed
 };
 
+export type AggregatedProduct = Product & { count: number };
+
+// Single definition of the aggregateCartItems function
 const aggregateCartItems = (cartItems: Product[]): AggregatedProduct[] => {
   const aggregationMap = new Map<string, AggregatedProduct>();
 
@@ -27,37 +31,6 @@ const aggregateCartItems = (cartItems: Product[]): AggregatedProduct[] => {
 
   return Array.from(aggregationMap.values());
 };
-
-export type AggregatedProduct = Product & { count: number };
-
-type Product = {
-  stock: number;
-  size: string;
-  name: string;
-  imgUrl: string;
-  price: number;
-  currency: string;
-  id: BigInt;
-};
-
-const aggregateCartItems = (cartItems: Product[]): AggregatedProduct[] => {
-  const aggregationMap = new Map<string, AggregatedProduct>();
-
-  cartItems.forEach((item) => {
-    const key = `${item.id}-${item.size}`;
-    const existing = aggregationMap.get(key);
-
-    if (existing) {
-      existing.count += 1;
-    } else {
-      aggregationMap.set(key, { ...item, count: 1 });
-    }
-  });
-
-  return Array.from(aggregationMap.values());
-};
-
-export type AggregatedProduct = Product & { count: number };
 
 export type CartState = {
   count: number;
@@ -96,7 +69,6 @@ const useCart = create(
             return [...acc, item];
           }, [] as Product[]);
 
-          // Recalculate the aggregated cart
           const newAggregatedCart = aggregateCartItems(newCart);
 
           return { ...state, cart: newCart, aggregatedCart: newAggregatedCart };
@@ -120,9 +92,9 @@ const useCart = create(
       },
     }),
     {
-      name: "cart-storage", // unique name
-      // (optional) by default the 'localStorage' is used
+      name: "cart-storage", // unique name for the persisted state
     },
   ),
 );
+
 export default useCart;
