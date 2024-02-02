@@ -87,7 +87,9 @@ export default function Home() {
           id="aboutus"
           className="mx-auto flex max-w-7xl flex-col gap-8 bg-clrprimary px-4 py-16 md:gap-16"
         >
-          <h2 className="text-4xl font-black md:text-5xl">ABOUT US</h2>
+          <h2 className="w-fit skew-y-[2deg] bg-clrdark bg-opacity-20 px-8 py-2 text-4xl font-black text-clrtertiary md:text-5xl ">
+            ABOUT US
+          </h2>
 
           <div className="flex max-w-3xl flex-col gap-4 font-medium text-clrdark lg:text-xl">
             <p className="font-bold text-clrwhite">

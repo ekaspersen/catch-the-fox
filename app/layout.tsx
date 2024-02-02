@@ -7,7 +7,6 @@ import { Montserrat } from "next/font/google";
 
 import { TRPCReactProvider } from "@/trpc/react";
 import { headers } from "next/headers";
-import ShopCart from "./components/Shoppingcart";
 import Navbar from "./components/navbar";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
