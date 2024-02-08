@@ -12,7 +12,7 @@ export default function Success() {
           <div className="flex flex-col items-center justify-center gap-16 py-16">
             <div className="flex flex-col items-center">
               <span className="text-3xl font-black italic">
-                Tusen takk for kjøpet!
+                Thank you for the support!
               </span>
               <span className="italic">
                 Håper du har en strålende dag videre.
@@ -31,6 +31,12 @@ export default function Success() {
                 className="flex w-fit items-center gap-16 rounded-full bg-clrdark px-12 py-6 text-2xl font-extrabold hover:bg-clrwhite hover:text-clrdark"
               >
                 SHOP
+              </Link>
+              <Link
+                href="/shop"
+                className="flex w-fit items-center gap-16 rounded-full bg-clrdark px-12 py-6 text-2xl font-extrabold hover:bg-clrwhite hover:text-clrdark"
+              >
+                CART
               </Link>
             </div>
           </div>

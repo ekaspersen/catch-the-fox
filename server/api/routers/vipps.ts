@@ -20,9 +20,7 @@ export const vippsRouter = createTRPCRouter({
       const checkout = await vipps.checkout.create(clientId, clientSecret, {
         merchantInfo: {
           callbackUrl: "https://example.com/callbackUrl",
-          returnUrl:
-            "https://example.com/page-customer-returns-to-after-success-or-failure-or-cancel",
-          
+          returnUrl: "http://localhost:3000/shop/success",
         },
         transaction: {
           amount: {
