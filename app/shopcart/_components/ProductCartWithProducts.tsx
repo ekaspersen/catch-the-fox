@@ -15,7 +15,7 @@ export default function ProductCartWithProducts() {
         iFrameContainerId: "vipps-checkout-frame-container",
         language: "no",
         token: data.token,
-      })
+      });
     }
   }, [data]);
 
@@ -71,9 +71,9 @@ export default function ProductCartWithProducts() {
       {aggregatedCart.map((product) => (
         <div
           key={`${product.id}-${product.size}`}
-          className="flex items-center justify-between bg-clrdark px-8 py-4"
+          className="flex flex-col items-center justify-between bg-clrdark px-8 py-4 sm:flex-row"
         >
-          <div className="flex items-center gap-4">
+          <div className="flex w-full items-center justify-between gap-4 sm:w-auto">
             <Image
               className="h-24 w-24 object-contain"
               src={product.imgUrl}
@@ -81,8 +81,10 @@ export default function ProductCartWithProducts() {
               width={96}
               height={96}
             />
-            <div className="flex flex-col gap-2">
-              <span className="text-2xl font-black">{product.name}</span>
+            <div className="flex flex-col items-end gap-2 sm:items-start">
+              <span className="text-xl font-black sm:text-2xl">
+                {product.name}
+              </span>
               <div className="flex gap-2 text-sm font-bold italic">
                 <span>Size:</span>
                 <span>{product.size}</span>
@@ -92,21 +94,15 @@ export default function ProductCartWithProducts() {
               </span>
             </div>
           </div>
-          <div className="flex items-center justify-center gap-8">
-            <button
-              className=" text-xs font-black text-clrprimary"
-              onClick={() => removeFromCart(product.id, product.size)}
-            >
-              Remove
-            </button>
+          <div className="flex w-full items-center justify-between gap-4 pt-4 sm:w-auto">
             <div className="flex flex-col">
               <div className="flex items-center gap-4 text-xl font-black">
                 <button
                   onClick={() => decreaseQuantity(product.id, product.size)}
                 >
                   <svg
-                    width="40"
-                    height="40"
+                    width="32"
+                    height="32"
                     viewBox="0 0 100 100"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -127,8 +123,8 @@ export default function ProductCartWithProducts() {
                 <span>{product.count}</span>
                 <button onClick={() => addToCart({ ...product })}>
                   <svg
-                    width="40"
-                    height="40"
+                    width="32"
+                    height="32"
                     viewBox="0 0 100 100"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -148,6 +144,12 @@ export default function ProductCartWithProducts() {
                 </button>
               </div>
             </div>
+            <button
+              className=" text-xs font-black text-clrprimary"
+              onClick={() => removeFromCart(product.id, product.size)}
+            >
+              Remove
+            </button>
           </div>
         </div>
       ))}

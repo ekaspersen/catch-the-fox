@@ -27,7 +27,7 @@ export const vippsRouter = createTRPCRouter({
             currency: "NOK",
             value: input.price * 100, // This value equals NOK 10,-
           },
-          paymentDescription: "One pair of socks.",
+          paymentDescription: "Catch the fox merch",
         },
       });
 

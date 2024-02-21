@@ -33,7 +33,7 @@ export default function Success() {
                 SHOP
               </Link>
               <Link
-                href="/shop"
+                href="/shopcart"
                 className="flex w-fit items-center gap-16 rounded-full bg-clrdark px-12 py-6 text-2xl font-extrabold hover:bg-clrwhite hover:text-clrdark"
               >
                 CART
