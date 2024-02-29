@@ -6,6 +6,8 @@ import { z } from "zod";
 const clientId = process.env.VIPPS_CLIENT_ID!;
 const clientSecret = process.env.VIPPS_CLIENT_SECRET!;
 
+// Just want to make this so i can archive vipps on this branch
+
 // TODO: Add error handling
 // TODO: Add DB Change on success
 
